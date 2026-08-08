@@ -25,3 +25,14 @@ class Solution {
         }
         return count;
     }
+
+//Optimize
+    class Solution {
+    public int countDigit(int n) {
+        int count = (int)(Math.log10(n)+1);
+        return count;
+    }
+}
+
+    TC = O(1)
+    SC = O(1)
