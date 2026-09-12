@@ -1,0 +1,32 @@
+import java.util.HashMap;
+
+class Solution {
+    public int subarraysWithXorK(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        int xor = 0;
+        int count = 0;
+
+        // Empty prefix
+        map.put(0, 1);
+
+        for (int num : nums) {
+            xor ^= num;
+
+            int required = xor ^ k;
+
+            count += map.getOrDefault(required, 0);
+
+            map.put(xor, map.getOrDefault(xor, 0) + 1);
+        }
+
+        return count;
+    }
+}
+
+
+
+Complexity:
+
+Time: O(n)
+Space: O(n)
